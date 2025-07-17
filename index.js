@@ -23,10 +23,12 @@ app.get('/api/jobs', async (req, res) => {
 });
 
 app.post('/api/registration', async (req, res) => {
+  console.log(req.body);
   try {
-    const response = await axios.post('http://api.mnimedu.com/api/auth/registration/', req.body, {
+    const response = await axios.post('https://api.mnimedu.com/api/auth/registration/', req.body, {
       headers: { 'Content-Type': 'application/json' },
     });
+    
 
     res.status(response.status).json(response.data);
   } catch (error) {
@@ -42,7 +44,7 @@ app.post('/api/registration', async (req, res) => {
 // login
 app.post('/api/login', async (req, res) => {
   try {
-    const response = await axios.post('http://api.mnimedu.com/api/auth/login/', req.body, {
+    const response = await axios.post('https://api.mnimedu.com/api/auth/login/', req.body, {
       headers: { 'Content-Type': 'application/json' },
     });
 
